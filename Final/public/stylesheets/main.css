@@ -21,11 +21,15 @@
     margin-left: auto;
 }
 
-#navHover:hover {
+#navHome:hover {
     background-color: #e7e7e7;
 }
 
-#navHover:active{
+#navLogin:hover {
+    background-color: #e7e7e7;
+} 
+
+#navSignUp:hover {
     background-color: #e7e7e7;
 }
 
