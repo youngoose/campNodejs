@@ -14,6 +14,7 @@ var express     = require("express"),
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
+    ratingRoutes     = require("./routes/ratings"),
     indexRoutes      = require("./routes/index")
     
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_final"    
@@ -49,6 +50,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/ratings", ratingRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
