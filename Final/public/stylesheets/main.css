@@ -30,6 +30,15 @@
     background-color: #e7e7e7;
 }
 
+#starTitle {
+    margin-top:15px;
+}
+
+#starForm {
+    margin-top: -12px;
+    margin-bottom: 5px;
+}
+
 /* Google Maps */
 #map {
     height: 400px;

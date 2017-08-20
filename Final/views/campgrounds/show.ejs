@@ -13,7 +13,7 @@
             
             <form action="/campgrounds/<%= campground._id %>/ratings" method="POST">
                 <div class="form-group">
-                    <label for="rating">Leave a rating:</label>
+                    <label id="starTitle" for="rating">Leave a rating:</label>
                     <fieldset class="starability-basic form-group" id="rating">
                       <input type="radio" id="first-rate5" name="rating[rating]" value="5" />
                       <label for="first-rate5" title="Amazing">5 stars</label>
@@ -27,7 +27,7 @@
                       <label for="first-rate1" title="Terrible">1 star</label>
                     </fieldset>
                 </div>
-                <div class="form-group">
+                <div id="starForm" class="form-group">
                     <button class="btn btn-sm btn-primary">
                         Submit rating!
                     </button>
