@@ -1,4 +1,5 @@
 var Campground = require("../models/campground");
+var Rating = require("../models/rating");
 var Comment = require("../models/comment");
 
 // all the middleare goes here
@@ -45,6 +46,21 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
         req.flash("error", "You need to be logged in to do that");
         res.redirect("back");
     }
+}
+
+middlewareObj.checkRatingExists = function(req, res, next){
+  Campground.findById(req.params.id).populate("ratings").exec(function(err, campground){
+    if(err){
+      console.log(err);
+    }
+    for(var i = 0; i < campground.ratings.length; i++ ) {
+      if(campground.ratings[i].author.id.equals(req.user._id)) {
+        req.flash("success", "You already rated this!");
+        return res.redirect('/campgrounds/' + campground._id);
+      }
+    }
+    next();
+  })
 }
 
 middlewareObj.isLoggedIn = function(req, res, next){
