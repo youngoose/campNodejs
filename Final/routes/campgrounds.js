@@ -69,11 +69,24 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 // SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").populate("ratings").exec(function(err, foundCampground){
         if(err){
             console.log(err);
         } else {
-            console.log(foundCampground)
+            if(foundCampground.ratings.length > 0) {
+              var ratings = [];
+              var length = foundCampground.ratings.length;
+              foundCampground.ratings.forEach(function(rating) { 
+                ratings.push(rating.rating) 
+              });
+              var rating = ratings.reduce(function(total, element) {
+                return total + element;
+              });
+              foundCampground.rating = rating / length;
+              foundCampground.save();
+            }
+            console.log("Ratings:", foundCampground.ratings);
+            console.log("Rating:", foundCampground.rating);
             //render show template with that campground
             res.render("campgrounds/show", {campground: foundCampground});
         }
