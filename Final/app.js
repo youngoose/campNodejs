@@ -17,11 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     ratingRoutes     = require("./routes/ratings"),
     indexRoutes      = require("./routes/index")
  
-// mongodb://new:admin@ds115214.mlab.com:15214/camp_new_server 
-mongoose.connect("mongodb://new:admin@ds115214.mlab.com:15214/camp_new_server", {useMongoClient: true});    
- 
-// var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_final"    
-// mongoose.connect(url, {useMongoClient: true});    
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_final"    
+mongoose.connect(url, {useMongoClient: true});    
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({extended: true}));
