@@ -8,4 +8,4 @@ Extra things I plan to develop:
 * Version 14 - shopping cart and navigation menu 
 
 
-This is the only online course taught by Udemy instructor Colt Steele.
+This is the online course taught by Udemy instructor Colt Steele.
