@@ -1,11 +1,8 @@
 ## Yelp Camp
 
-Version 13
-* Add Google maps 
+Version 13 
 * Searching Tool bar to find a specific campground
 
-Extra things I plan to develop:
-* Version 14 - shopping cart and navigation menu 
-
+* Currently working on Version 14 - need to fix google map function due to Google API issue
 
 This is the online course taught by Udemy instructor Colt Steele.
